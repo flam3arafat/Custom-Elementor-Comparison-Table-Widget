@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; 
 }
 
-// Register the widget with Elementor
+// Register the widget with Elementor//
 function register_comparison_table_widget() {
     require_once( plugin_dir_path( __FILE__ ) . 'comparison-table-widget.php' );
 }
