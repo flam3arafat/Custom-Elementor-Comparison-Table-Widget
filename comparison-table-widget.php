@@ -18,7 +18,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
     }
 
     protected function _register_controls() {
-        // Content Controls//
+        // Content Controls
         $this->start_controls_section(
             'content_section',
             [
@@ -27,7 +27,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
             ]
         );
 
-        // Table Headers//
+        // Table Headers
         $this->add_control(
             'header_features',
             [
@@ -82,7 +82,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
             ]
         );
 
-        // Table Rows//
+        // Table Rows
         $this->add_control(
             'rows',
             [
@@ -138,7 +138,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        // Style Controls//
+        // Style Controls
         $this->start_controls_section(
             'style_section',
             [
@@ -147,7 +147,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
             ]
         );
 
-        // Font Control for Headers//
+        // Font Control for Headers
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
@@ -157,7 +157,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
             ]
         );
 
-        // Font Control for Rows//
+        // Font Control for Rows
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
@@ -167,7 +167,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
             ]
         );
 
-        // Header Background Color//
+        // Header Background Color
         $this->add_control(
             'header_background_color',
             [
@@ -179,7 +179,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
             ]
         );
 
-        // Button Background Color//
+        // Button Background Color
         $this->add_control(
             'button_background_color',
             [
@@ -191,7 +191,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
             ]
         );
 
-        // Padding Control//
+        // Padding Control
         $this->add_responsive_control(
             'table_padding',
             [
@@ -204,7 +204,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
             ]
         );
 
-        // Margin Control//
+        // Margin Control
         $this->add_responsive_control(
             'table_margin',
             [
@@ -222,6 +222,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
+        echo '<div class="comparison-table-wrapper" style="overflow-x: auto;">'; // Wrapper for scrolling
         echo '<table class="comparison-table" style="width: 100%; border-collapse: collapse;">';
         echo '<thead>';
         echo '<tr style="background-color: #2E1A47; color: #fff;">';
@@ -237,11 +238,11 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
 
         foreach ( $settings['rows'] as $row ) {
             echo '<tr style="border-bottom: 1px solid #ddd;">';
-            echo '<td>' . esc_html( $row['feature'] ) . '</td>';
-            echo '<td>' . esc_html( $row['price'] ) . '</td>';
-            echo '<td>' . esc_html( $row['domain'] ) . '</td>';
-            echo '<td>' . esc_html( $row['issuance_time'] ) . '</td>';
-            echo '<td>' . esc_html( $row['warranty'] ) . '</td>';
+            echo '<td data-label="' . esc_html( $settings['header_features'] ) . '">' . esc_html( $row['feature'] ) . '</td>';
+            echo '<td data-label="' . esc_html( $settings['header_price'] ) . '">' . esc_html( $row['price'] ) . '</td>';
+            echo '<td data-label="' . esc_html( $settings['header_domain'] ) . '">' . esc_html( $row['domain'] ) . '</td>';
+            echo '<td data-label="' . esc_html( $settings['header_issuance_time'] ) . '">' . esc_html( $row['issuance_time'] ) . '</td>';
+            echo '<td data-label="' . esc_html( $settings['header_warranty'] ) . '">' . esc_html( $row['warranty'] ) . '</td>';
             if ( ! empty( $row['button_link']['url'] ) ) {
                 echo '<td><a href="' . esc_url( $row['button_link']['url'] ) . '" class="order-button" target="_blank" style="padding: 10px 20px; background-color: #2E1A47; color: #fff; text-align: center; text-decoration: none; display: inline-block; border-radius: 3px;">' . esc_html( $row['button_text'] ) . '</a></td>';
             } else {
@@ -252,7 +253,55 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
 
         echo '</tbody>';
         echo '</table>';
+        echo '</div>'; // Close the wrapper
     }
 }
 
 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Comparison_Table_Widget() );
+
+add_action('wp_head', function() {
+    echo '<style>
+        .comparison-table-wrapper {
+            overflow-x: auto; /* Enable horizontal scrolling */
+        }
+
+        .comparison-table {
+            min-width: 600px; /* Minimum width to prevent too much shrinkage */
+            width: 100%; /* Full width for responsiveness */
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 10px; /* Add padding for better readability */
+            text-align: left; /* Align text to the left */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .comparison-table {
+                display: block; /* Allow block display */
+            }
+
+            .comparison-table thead {
+                display: none; /* Hide headers */
+            }
+
+            .comparison-table tbody tr {
+                display: block; /* Stack rows */
+                margin-bottom: 10px; /* Spacing between rows */
+            }
+
+            .comparison-table td {
+                display: flex; /* Flex display for alignment */
+                justify-content: space-between; /* Align items to left */
+                padding: 10px; /* Padding for readability */
+                border: 1px solid #ddd; /* Border for separation */
+            }
+
+            .comparison-table td:before {
+                content: attr(data-label); /* Use data-label for headers */
+                font-weight: bold; /* Make labels bold */
+                margin-right: 10px; /* Space between label and value */
+            }
+        }
+    </style>';
+});
