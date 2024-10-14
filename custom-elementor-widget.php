@@ -2,7 +2,7 @@
 /*
 Plugin Name: Custom Elementor Comparison Table Widget
 Description: A custom comparison table widget for Elementor with 6 columns and buttons.
-Version: 1.0
+Version: 1.0.1
 Author: MD Arafat Rahman
 Author URI: https://flamearafat.com
 Plugin URI: https://flamearafat.com/cect
