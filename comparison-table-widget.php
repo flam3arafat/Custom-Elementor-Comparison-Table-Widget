@@ -6,7 +6,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
     }
 
     public function get_title() {
-        return __( 'Comparison Table', 'text-domain' );
+        return __( 'Comparison Table', 'flamedev' );
     }
 
     public function get_icon() {
@@ -22,7 +22,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'content_section',
             [
-                'label' => __( 'Content', 'text-domain' ),
+                'label' => __( 'Content', 'flamedev' ),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -31,54 +31,54 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'header_features',
             [
-                'label' => __( 'Header - Features', 'text-domain' ),
+                'label' => __( 'Header - Features', 'flamedev' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __( 'Features', 'text-domain' ),
+                'default' => __( 'Features', 'flamedev' ),
             ]
         );
 
         $this->add_control(
             'header_price',
             [
-                'label' => __( 'Header - Lowest Price', 'text-domain' ),
+                'label' => __( 'Header - Lowest Price', 'flamedev' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __( 'Lowest Price', 'text-domain' ),
+                'default' => __( 'Lowest Price', 'flamedev' ),
             ]
         );
 
         $this->add_control(
             'header_domain',
             [
-                'label' => __( 'Header - Domain', 'text-domain' ),
+                'label' => __( 'Header - Domain', 'flamedev' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __( 'Domain', 'text-domain' ),
+                'default' => __( 'Domain', 'flamedev' ),
             ]
         );
 
         $this->add_control(
             'header_issuance_time',
             [
-                'label' => __( 'Header - Issuance Time', 'text-domain' ),
+                'label' => __( 'Header - Issuance Time', 'flamedev' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __( 'Issuance Time', 'text-domain' ),
+                'default' => __( 'Issuance Time', 'flamedev' ),
             ]
         );
 
         $this->add_control(
             'header_warranty',
             [
-                'label' => __( 'Header - Warranty', 'text-domain' ),
+                'label' => __( 'Header - Warranty', 'flamedev' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __( 'Warranty', 'text-domain' ),
+                'default' => __( 'Warranty', 'flamedev' ),
             ]
         );
 
         $this->add_control(
             'header_action',
             [
-                'label' => __( 'Header - Action', 'text-domain' ),
+                'label' => __( 'Header - Action', 'flamedev' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __( 'Action', 'text-domain' ),
+                'default' => __( 'Action', 'flamedev' ),
             ]
         );
 
@@ -86,50 +86,50 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'rows',
             [
-                'label' => __( 'Table Rows', 'text-domain' ),
+                'label' => __( 'Table Rows', 'flamedev' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => [
                     [
                         'name' => 'feature',
-                        'label' => __( 'Feature', 'text-domain' ),
+                        'label' => __( 'Feature', 'flamedev' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
-                        'default' => __( 'Feature Name', 'text-domain' ),
+                        'default' => __( 'Feature Name', 'flamedev' ),
                     ],
                     [
                         'name' => 'price',
-                        'label' => __( 'Lowest Price', 'text-domain' ),
+                        'label' => __( 'Lowest Price', 'flamedev' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
-                        'default' => __( '৳ 8,125/yr', 'text-domain' ),
+                        'default' => __( '৳ 8,125/yr', 'flamedev' ),
                     ],
                     [
                         'name' => 'domain',
-                        'label' => __( 'Domain', 'text-domain' ),
+                        'label' => __( 'Domain', 'flamedev' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
-                        'default' => __( 'Single', 'text-domain' ),
+                        'default' => __( 'Single', 'flamedev' ),
                     ],
                     [
                         'name' => 'issuance_time',
-                        'label' => __( 'Issuance Time', 'text-domain' ),
+                        'label' => __( 'Issuance Time', 'flamedev' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
-                        'default' => __( '1-15 Days', 'text-domain' ),
+                        'default' => __( '1-15 Days', 'flamedev' ),
                     ],
                     [
                         'name' => 'warranty',
-                        'label' => __( 'Warranty', 'text-domain' ),
+                        'label' => __( 'Warranty', 'flamedev' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
-                        'default' => __( '$500,000', 'text-domain' ),
+                        'default' => __( '$500,000', 'flamedev' ),
                     ],
                     [
                         'name' => 'button_text',
-                        'label' => __( 'Button Text', 'text-domain' ),
+                        'label' => __( 'Button Text', 'flamedev' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
-                        'default' => __( 'ORDER', 'text-domain' ),
+                        'default' => __( 'ORDER', 'flamedev' ),
                     ],
                     [
                         'name' => 'button_link',
-                        'label' => __( 'Button Link', 'text-domain' ),
+                        'label' => __( 'Button Link', 'flamedev' ),
                         'type' => \Elementor\Controls_Manager::URL,
-                        'placeholder' => __( 'https://your-link.com', 'text-domain' ),
+                        'placeholder' => __( 'https://your-link.com', 'flamedev' ),
                     ],
                 ],
                 'title_field' => '{{{ feature }}} | {{{ price }}}',
@@ -142,7 +142,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'style_section',
             [
-                'label' => __( 'Style', 'text-domain' ),
+                'label' => __( 'Style', 'flamedev' ),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -152,7 +152,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'header_typography',
-                'label' => __( 'Header Typography', 'text-domain' ),
+                'label' => __( 'Header Typography', 'flamedev' ),
                 'selector' => '{{WRAPPER}} .comparison-table thead th',
             ]
         );
@@ -162,7 +162,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'row_typography',
-                'label' => __( 'Row Typography', 'text-domain' ),
+                'label' => __( 'Row Typography', 'flamedev' ),
                 'selector' => '{{WRAPPER}} .comparison-table tbody td',
             ]
         );
@@ -171,7 +171,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'header_background_color',
             [
-                'label' => __( 'Header Background Color', 'text-domain' ),
+                'label' => __( 'Header Background Color', 'flamedev' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .comparison-table thead th' => 'background-color: {{VALUE}}',
@@ -183,7 +183,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'button_background_color',
             [
-                'label' => __( 'Button Background Color', 'text-domain' ),
+                'label' => __( 'Button Background Color', 'flamedev' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .comparison-table .order-button' => 'background-color: {{VALUE}}',
@@ -195,7 +195,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'table_padding',
             [
-                'label' => __( 'Table Padding', 'text-domain' ),
+                'label' => __( 'Table Padding', 'flamedev' ),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -208,7 +208,7 @@ class Comparison_Table_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'table_margin',
             [
-                'label' => __( 'Table Margin', 'text-domain' ),
+                'label' => __( 'Table Margin', 'flamedev' ),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
